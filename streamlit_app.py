@@ -36,8 +36,11 @@ def main():
         else:
             st.sidebar.warning("⚠️ Connection: Missing Keys")
 
-        # Render the component
-        serenity_ui(url=url, supabase_key=key)
+        # Hide padding
+        st.markdown("<style>.block-container { padding: 0px; }</style>", unsafe_allow_html=True)
+
+        # Render the component with explicit height
+        serenity_ui(url=url, supabase_key=key, height=1200)
 
     except Exception as e:
         st.error(f"❌ **System Error:** {str(e)}")

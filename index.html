@@ -15,5 +15,27 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Required for Streamlit Custom Components to clear the "loading" timeout
+      function sendReady() {
+        window.parent.postMessage({
+          isStreamlitMessage: true,
+          type: "streamlit:componentReady",
+          apiVersion: 1
+        }, "*");
+      }
+
+      // Send ready message after a small delay to ensure React has started
+      setTimeout(sendReady, 100);
+
+      // Auto-resize handler
+      window.addEventListener("load", () => {
+        window.parent.postMessage({
+          isStreamlitMessage: true,
+          type: "streamlit:setComponentValue",
+          value: null
+        }, "*");
+      });
+    </script>
   </body>
 </html>
