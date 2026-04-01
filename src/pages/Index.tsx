@@ -115,11 +115,11 @@ const Index = () => {
     };
 
     try {
-      const resp = await fetch("%%SUPABASE_URL%%/functions/v1/chat", {
+      const resp = await fetch(`${(window as any).VITE_SUPABASE_URL}/functions/v1/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer %%SUPABASE_KEY%%`,
+          Authorization: `Bearer ${(window as any).VITE_SUPABASE_PUBLISHABLE_KEY}`,
         },
         body: JSON.stringify({ 
           messages: updatedMessages,
