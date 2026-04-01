@@ -37,16 +37,27 @@ def main():
     if not supabase_url or not supabase_key:
         st.sidebar.info("Hint: Add VITE_SUPABASE_URL or VITE_SUPABASE_PROJECT_ID to Secrets")
     
+    # Inject Error Catcher to see why it's blank
+    error_catcher = """
+    <script>
+    window.onerror = function(msg, url, line, col, error) {
+        var div = document.createElement('div');
+        div.style.color = 'red';
+        div.style.padding = '20px';
+        div.style.background = 'white';
+        div.innerHTML = '<h3>❌ JS Runtime Error:</h3>' + msg + '<br>Line: ' + line;
+        document.body.prepend(div);
+    };
+    </script>
+    """
+    html_content = html_content.replace("<head>", "<head>" + error_catcher)
+
     html_content = html_content.replace("%%SUPABASE_URL%%", supabase_url)
     html_content = html_content.replace("%%SUPABASE_KEY%%", supabase_key)
 
-    # DIAGNOSTIC PREVIEW
-    if st.sidebar.checkbox("Debug: View HTML Source"):
-        st.code(html_content[:1000], language="html")
-
     # Render the React component
     try:
-        components.html(html_content, height=1000, scrolling=True)
+        components.html(html_content, height=1200, scrolling=True)
     except Exception as e:
         st.error(f"Render Fail: {str(e)}")
 
