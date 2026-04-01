@@ -3,42 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Serenity AI</title>
-    <meta name="description" content="Your safe space to talk - Emotion-Aware AI Companion" />
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      window.VITE_SUPABASE_URL = params.get('sb_url') || "%%SUPABASE_URL%%";
-      window.VITE_SUPABASE_PUBLISHABLE_KEY = params.get('sb_key') || "%%SUPABASE_KEY%%";
-    </script>
-  </head>
+    <!-- TODO: Set the document title to the name of your application -->
+    <title>Emoti Sense AI</title>
+    <meta name="description" content="Emotion-aware mental health support assistant">
+    <meta name="author" content="Emoti Sense AI" />
+
+    <!-- TODO: Update og:title to match your application name -->
+    
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/favicon.ico">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@EmotiSenseAI" />
+    <meta name="twitter:image" content="/favicon.ico">
+    <meta property="og:title" content="Emoti Sense AI">
+  <meta name="twitter:title" content="Emoti Sense AI">
+  <meta property="og:description" content="Emotion-aware mental health support assistant">
+  <meta name="twitter:description" content="Emotion-aware mental health support assistant">
+</head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // 1. Initial lookup from URL (fallback)
-      const params = new URLSearchParams(window.location.search);
-      window.VITE_SUPABASE_URL = params.get('sb_url') || "%%SUPABASE_URL%%";
-      window.VITE_SUPABASE_PUBLISHABLE_KEY = params.get('sb_key') || "%%SUPABASE_KEY%%";
-
-      // 2. Official Streamlit Message Bridge
-      window.addEventListener("message", (event) => {
-        if (event.data && event.data.type === "streamlit:render") {
-          const args = event.data.args;
-          if (args.sb_url) window.VITE_SUPABASE_URL = args.sb_url;
-          if (args.sb_key) window.VITE_SUPABASE_PUBLISHABLE_KEY = args.sb_key;
-        }
-      });
-
-      // 3. Signal Ready
-      function sendReady() {
-        window.parent.postMessage({
-          isStreamlitMessage: true,
-          type: "streamlit:componentReady",
-          apiVersion: 1
-        }, "*");
-      }
-      setTimeout(sendReady, 100);
-    </script>
   </body>
 </html>

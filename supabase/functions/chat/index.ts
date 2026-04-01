@@ -55,28 +55,21 @@ serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    const { messages, language } = await req.json();
-    const OPENAI_API_KEY = Deno.env.get("OPENAI_API_KEY");
-    if (!OPENAI_API_KEY) throw new Error("OPENAI_API_KEY is not configured");
+    const { messages } = await req.json();
+    const AI_GATEWAY_API_KEY = Deno.env.get("AI_GATEWAY_API_KEY");
+    const AI_GATEWAY_URL = Deno.env.get("AI_GATEWAY_URL") ?? "https://openrouter.ai/api/v1/chat/completions";
+    if (!AI_GATEWAY_API_KEY) throw new Error("AI_GATEWAY_API_KEY is not configured");
 
-    // Add language-specific instruction to the system prompt
-    let localizedPrompt = SYSTEM_PROMPT;
-    if (language === "hi-IN") {
-      localizedPrompt += "\n\nIMPORTANT: You must respond in Hindi (हिन्दी) for this entire conversation.";
-    } else if (language === "ta-IN") {
-      localizedPrompt += "\n\nIMPORTANT: You must respond in Tamil (தமிழ்) for this entire conversation.";
-    }
-
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch(AI_GATEWAY_URL, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${OPENAI_API_KEY}`,
+        Authorization: `Bearer ${AI_GATEWAY_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
+        model: "google/gemini-3-flash-preview",
         messages: [
-          { role: "system", content: localizedPrompt },
+          { role: "system", content: SYSTEM_PROMPT },
           ...messages,
         ],
         stream: true,
@@ -84,16 +77,21 @@ serve(async (req) => {
     });
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error("OpenAI error:", response.status, errorData);
-      
       if (response.status === 429) {
         return new Response(JSON.stringify({ error: "Rate limits exceeded, please try again later." }), {
           status: 429,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
-      return new Response(JSON.stringify({ error: "Failed to fetch from OpenAI" }), {
+      if (response.status === 402) {
+        return new Response(JSON.stringify({ error: "Usage limit reached. Please add credits." }), {
+          status: 402,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+      const t = await response.text();
+      console.error("AI gateway error:", response.status, t);
+      return new Response(JSON.stringify({ error: "AI gateway error" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
