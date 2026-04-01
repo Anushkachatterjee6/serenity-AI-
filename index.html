@@ -6,8 +6,9 @@
     <title>Serenity AI</title>
     <meta name="description" content="Your safe space to talk - Emotion-Aware AI Companion" />
     <script>
-      window.VITE_SUPABASE_URL = "%%SUPABASE_URL%%";
-      window.VITE_SUPABASE_PUBLISHABLE_KEY = "%%SUPABASE_KEY%%";
+      const params = new URLSearchParams(window.location.search);
+      window.VITE_SUPABASE_URL = params.get('url') || "%%SUPABASE_URL%%";
+      window.VITE_SUPABASE_PUBLISHABLE_KEY = params.get('key') || "%%SUPABASE_KEY%%";
     </script>
   </head>
 
