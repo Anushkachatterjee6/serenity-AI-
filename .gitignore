@@ -13,6 +13,7 @@ dist-ssr
 .env
 .env.backup
 .env.local
+.streamlit/
 
 # Editor directories and files
 .vscode/*

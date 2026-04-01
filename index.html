@@ -16,7 +16,21 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Required for Streamlit Custom Components to clear the "loading" timeout
+      // 1. Initial lookup from URL (fallback)
+      const params = new URLSearchParams(window.location.search);
+      window.VITE_SUPABASE_URL = params.get('sb_url') || "%%SUPABASE_URL%%";
+      window.VITE_SUPABASE_PUBLISHABLE_KEY = params.get('sb_key') || "%%SUPABASE_KEY%%";
+
+      // 2. Official Streamlit Message Bridge
+      window.addEventListener("message", (event) => {
+        if (event.data && event.data.type === "streamlit:render") {
+          const args = event.data.args;
+          if (args.sb_url) window.VITE_SUPABASE_URL = args.sb_url;
+          if (args.sb_key) window.VITE_SUPABASE_PUBLISHABLE_KEY = args.sb_key;
+        }
+      });
+
+      // 3. Signal Ready
       function sendReady() {
         window.parent.postMessage({
           isStreamlitMessage: true,
@@ -24,18 +38,7 @@
           apiVersion: 1
         }, "*");
       }
-
-      // Send ready message after a small delay to ensure React has started
       setTimeout(sendReady, 100);
-
-      // Auto-resize handler
-      window.addEventListener("load", () => {
-        window.parent.postMessage({
-          isStreamlitMessage: true,
-          type: "streamlit:setComponentValue",
-          value: null
-        }, "*");
-      });
     </script>
   </body>
 </html>
