@@ -25,18 +25,27 @@ def main():
         st.error("🚀 **Error: Build files missing.** Please re-run the build.")
         return
 
-    # Injected Secrets
-    project_id = st.secrets.get("VITE_SUPABASE_PROJECT_ID", "")
-    url = st.secrets.get("VITE_SUPABASE_URL", "")
-    if project_id and not url:
-        url = f"https://{project_id}.supabase.co"
-    key = st.secrets.get("VITE_SUPABASE_PUBLISHABLE_KEY", "")
-    
+    # Diagnostic Status in Sidebar
     st.sidebar.title("🌿 Serenity AI Live")
+    
+    # 1. Load Secrets Safely
+    try:
+        url = st.secrets.get("VITE_SUPABASE_URL", st.secrets.get("VITE_SUPABASE_PROJECT_ID", ""))
+        key = st.secrets.get("VITE_SUPABASE_PUBLISHABLE_KEY", "")
+    except:
+        url = ""
+        key = ""
+
+    # Construct full URL if only project ID is given
+    if url and "https://" not in url:
+        url = f"https://{url}.supabase.co"
+    
+    # Status Check
     if url and key:
         st.sidebar.success("✅ Connection: Ready")
     else:
         st.sidebar.warning("⚠️ Connection: Missing Keys")
+        st.sidebar.info("Please add secrets in Streamlit Cloud Settings > Secrets.")
 
     # Perform the dynamic replacement directly in the large HTML string
     # This is the most reliable way to ensure the React app sees the keys
