@@ -23,12 +23,19 @@ def main():
     with open(index_path, "r", encoding="utf-8") as file:
         html_content = file.read()
 
-    # Inject secrets
+    # Get secrets from Streamlit Cloud dashboard
+    project_id = st.secrets.get("VITE_SUPABASE_PROJECT_ID", "")
     supabase_url = st.secrets.get("VITE_SUPABASE_URL", "")
     supabase_key = st.secrets.get("VITE_SUPABASE_PUBLISHABLE_KEY", "")
     
+    # Auto-construct URL if user provided Project ID instead of full URL
+    if project_id and not supabase_url:
+        supabase_url = f"https://{project_id}.supabase.co"
+    
     # MASKED LOGGING FOR UI
-    st.sidebar.write(f"Supabase URL set: {'✅' if supabase_url else '❌'}")
+    st.sidebar.write(f"Supabase Status: {'✅ Ready' if (supabase_url and supabase_key) else '❌ Not Ready'}")
+    if not supabase_url or not supabase_key:
+        st.sidebar.info("Hint: Add VITE_SUPABASE_URL or VITE_SUPABASE_PROJECT_ID to Secrets")
     
     html_content = html_content.replace("%%SUPABASE_URL%%", supabase_url)
     html_content = html_content.replace("%%SUPABASE_KEY%%", supabase_key)
