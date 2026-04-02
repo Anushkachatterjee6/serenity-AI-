@@ -1,0 +1,6 @@
+{"role": "user", "text": "Hi", "emotion": "neutral", "confidence": 0.5, "timestamp": "09:04:04"}
+{"role": "assistant", "text": "Thanks for sharing that with me. Is there something specific on your mind today?", "emotion": "neutral", "confidence": 0.5, "timestamp": "09:04:05"}
+{"role": "user", "text": "I forgot to do my homowork so maam scolded me.", "emotion": "neutral", "confidence": 0.5, "timestamp": "09:04:26"}
+{"role": "assistant", "text": "You mentioned this before, and I want to revisit it, Thanks for sharing that with me. Is there something specific on your mind today?", "emotion": "neutral", "confidence": 0.5, "timestamp": "09:04:27"}
+{"role": "user", "text": "Type your message here\u2026im very disappointed in mysled", "emotion": "sad", "confidence": 0.2, "timestamp": "09:04:42"}
+{"role": "assistant", "text": "I can hear that things have gotten heavier. I'm not going anywhere. I've noticed our conversation has been heavy, and I want to check in \u2014 how are you really doing right now?", "emotion": "neutral", "confidence": 0.5, "timestamp": "09:04:43"}

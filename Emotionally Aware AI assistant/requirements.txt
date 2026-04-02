@@ -1,0 +1,23 @@
+# ─────────────────────────────────────────────────────────────
+#  Aura — Mental Health AI Assistant  |  requirements.txt
+# ─────────────────────────────────────────────────────────────
+
+# Core NLP & ML
+transformers>=4.30.0          # HuggingFace transformer models (optional)
+torch>=2.0.0                  # PyTorch backend for transformers (optional)
+
+# Anthropic Claude API (response generation)
+anthropic>=0.25.0
+
+# Voice Input
+SpeechRecognition>=3.10.0
+pyaudio>=0.2.13               # microphone access for SpeechRecognition
+
+# Text-to-Speech
+pyttsx3>=2.90
+
+# Multilingual support (optional)
+# deep-translator>=1.11.4
+
+# Utilities (usually bundled with Python)
+# tkinter  — built into Python stdlib, no pip install needed

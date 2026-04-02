@@ -1,0 +1,98 @@
+{
+  "session_start": "2026-04-01_09-04-58",
+  "total_turns": 6,
+  "emotion_trajectory": [
+    "neutral",
+    "neutral",
+    "sad",
+    "happy",
+    "happy",
+    "happy"
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "text": "Hi",
+      "emotion": "neutral",
+      "confidence": 0.5,
+      "timestamp": "09:05:06"
+    },
+    {
+      "role": "assistant",
+      "text": "I'm here and happy to chat. How has your day been going?",
+      "emotion": "neutral",
+      "confidence": 0.5,
+      "timestamp": "09:05:07"
+    },
+    {
+      "role": "user",
+      "text": "Okay ish",
+      "emotion": "neutral",
+      "confidence": 0.5,
+      "timestamp": "09:05:16"
+    },
+    {
+      "role": "assistant",
+      "text": "You mentioned this before, and I want to revisit it, I'm here and happy to chat. How has your day been going?",
+      "emotion": "neutral",
+      "confidence": 0.5,
+      "timestamp": "09:05:17"
+    },
+    {
+      "role": "user",
+      "text": "Im kinda disappointed",
+      "emotion": "sad",
+      "confidence": 0.2,
+      "timestamp": "09:05:28"
+    },
+    {
+      "role": "assistant",
+      "text": "I notice things might be feeling harder right now than a moment ago. I'm with you. I've noticed our conversation has been heavy, and I want to check in — how are you really doing right now?",
+      "emotion": "neutral",
+      "confidence": 0.5,
+      "timestamp": "09:05:29"
+    },
+    {
+      "role": "user",
+      "text": "great",
+      "emotion": "happy",
+      "confidence": 0.2,
+      "timestamp": "09:05:38"
+    },
+    {
+      "role": "assistant",
+      "text": "It sounds like something may have shifted a little — am I reading that right? I've noticed our conversation has been heavy, and I want to check in — how are you really doing right now?",
+      "emotion": "neutral",
+      "confidence": 0.5,
+      "timestamp": "09:05:39"
+    },
+    {
+      "role": "user",
+      "text": "amazing!",
+      "emotion": "happy",
+      "confidence": 0.2,
+      "timestamp": "09:05:50"
+    },
+    {
+      "role": "assistant",
+      "text": "You've been carrying a lot in this conversation. I'm genuinely concerned about you. Is there anything specific that would feel helpful right now?",
+      "emotion": "neutral",
+      "confidence": 0.5,
+      "timestamp": "09:05:51"
+    },
+    {
+      "role": "user",
+      "text": "im feeling happy right now",
+      "emotion": "happy",
+      "confidence": 0.2,
+      "timestamp": "09:06:03"
+    },
+    {
+      "role": "assistant",
+      "text": "Building on what you shared earlier, I love hearing that! It sounds like things are going really well for you. Tell me more!",
+      "emotion": "neutral",
+      "confidence": 0.5,
+      "timestamp": "09:06:04"
+    }
+  ]
+}
