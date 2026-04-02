@@ -1,8 +1,0 @@
-2025-07-13 18:45 | User: hey
-2025-07-13 18:45 | Bot: I’m here with you. Want to share more about how you’re feeling?
-2025-07-13 22:03 | User: hey
-2025-07-13 22:03 | Bot: I’m here with you. Want to share more about how you’re feeling?
-2025-07-13 22:03 | User: im feeling great
-2025-07-13 22:03 | Bot: I’m here with you. Want to share more about how you’re feeling?
-2025-07-13 22:04 | User: im feeling happy
-2025-07-13 22:04 | Bot: I’m here with you. Want to share more about how you’re feeling?
