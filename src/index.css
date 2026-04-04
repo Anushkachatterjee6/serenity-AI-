@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 96%;
+    --foreground: 30 10% 20%;
+
+    --card: 40 30% 98%;
+    --card-foreground: 30 10% 20%;
+
+    --popover: 40 30% 98%;
+    --popover-foreground: 30 10% 20%;
+
+    --primary: 152 25% 42%;
+    --primary-foreground: 40 33% 96%;
+
+    --secondary: 30 20% 90%;
+    --secondary-foreground: 30 10% 30%;
+
+    --muted: 35 15% 92%;
+    --muted-foreground: 30 8% 50%;
+
+    --accent: 25 40% 88%;
+    --accent-foreground: 25 30% 25%;
+
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 40 33% 96%;
+
+    --border: 35 18% 88%;
+    --input: 35 18% 88%;
+    --ring: 152 25% 42%;
+
+    --radius: 1rem;
+
+    --sage: 152 25% 42%;
+    --sage-light: 152 20% 92%;
+    --sage-glow: 152 30% 55%;
+    --sand: 35 30% 94%;
+    --clay: 25 35% 80%;
+    --warmth: 20 40% 60%;
+    --cream: 40 40% 97%;
+
+    --sidebar-background: 40 30% 97%;
+    --sidebar-foreground: 30 10% 30%;
+    --sidebar-primary: 152 25% 42%;
+    --sidebar-primary-foreground: 40 33% 96%;
+    --sidebar-accent: 152 15% 92%;
+    --sidebar-accent-foreground: 30 10% 30%;
+    --sidebar-border: 35 18% 88%;
+    --sidebar-ring: 152 25% 42%;
+
+    --crisis-bg: 0 50% 95%;
+    --crisis-text: 0 40% 40%;
+    --crisis-border: 0 40% 85%;
+
+    --user-bubble: 152 25% 42%;
+    --user-bubble-foreground: 40 33% 96%;
+    --ai-bubble: 40 30% 98%;
+    --ai-bubble-foreground: 30 10% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Lora', serif;
+  }
+}
