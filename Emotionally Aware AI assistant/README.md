@@ -1,4 +1,4 @@
-# ✦ Serenity — Emotion-Aware Mental Health AI Assistant
+# ✦ Aura — Emotion-Aware Mental Health AI Assistant
 
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Aura-blue?style=for-the-badge)](https://serenitymentalhealthai.streamlit.app/)
