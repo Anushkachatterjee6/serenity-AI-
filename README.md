@@ -1,7 +1,13 @@
 # Serenity AI
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Serenity%20AI-blue?style=for-the-badge)](https://serenitymentalhealthai.streamlit.app/)
+
 A safe-space conversational assistant for mental wellness with text and voice support.
 
+---
+
+## 🌐 Live Demo
+👉 https://serenitymentalhealthai.streamlit.app/
 
 
 ## Description
