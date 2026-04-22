@@ -1,5 +1,15 @@
 # ✦ Aura — Emotion-Aware Mental Health AI Assistant
 
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Aura-blue?style=for-the-badge)](https://serenitymentalhealthai.streamlit.app/)
+
+A production-level Python application that provides empathetic, context-aware mental health support using NLP-based emotion detection and the Anthropic Claude API.
+
+---
+
+## 🌐 Live Demo
+👉 https://serenitymentalhealthai.streamlit.app/
+
 A production-level Python application that provides empathetic, context-aware mental health support using NLP-based emotion detection and the Anthropic Claude API.
 
 ---
