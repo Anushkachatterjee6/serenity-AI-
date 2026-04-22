@@ -2,6 +2,9 @@
 
 A safe-space conversational assistant for mental wellness with text and voice support.
 
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Aura-blue?style=for-the-badge)](https://serenitymentalhealthai.streamlit.app/)
+
 ## Description
 
 Serenity AI offers an empathetic chat interface backed by Supabase Edge Functions and streamed AI responses. It is designed to provide calm, supportive conversational experiences with speech-to-text input and text-to-speech output.
